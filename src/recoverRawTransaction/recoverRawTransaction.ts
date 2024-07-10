@@ -9,7 +9,6 @@ import { RecoveredTransactionResult } from '../types/rawTransactionConfig';
  * the individual transaction parameters. It supports both legacy and EIP-155 transactions.
  *
  * @param {string} rawTransaction - The raw transaction data as a hexadecimal string.
- * It can optionally start with '0x'.
  *
  * @returns {RecoveredTransactionResult} An object containing the recovered transaction details.
  * @property {number} nonce - The nonce of the transaction.

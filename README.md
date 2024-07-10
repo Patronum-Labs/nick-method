@@ -104,7 +104,14 @@ Generates a raw deployment transaction.
 
 Generates a raw execution transaction.
 
-For detailed type definitions of `DeploymentConfig`, `DeploymentResult`, `TransactionConfig`, and `TransactionResult`, please refer to the source code or TypeScript definitions.
+### recoverRawTransaction(rawTransaction: string): RecoveredTransactionResult
+
+Recovers transaction details from a raw transaction string.
+
+- `rawTransaction`: The raw transaction data as a hexadecimal string.
+- Returns: An object containing the recovered transaction details.
+
+For detailed type definitions of `DeploymentConfig`, `DeploymentResult`, `TransactionConfig`, `TransactionResult`, and `RecoveredTransactionResult`, please refer to the source code or TypeScript definitions.
 
 ## Contributing
 
