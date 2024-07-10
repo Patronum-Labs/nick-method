@@ -2,6 +2,10 @@
 
 # @patronumlabs/nick-method
 
+[![Test nick-method](https://github.com/Patronum-Labs/nick-method/actions/workflows/main.yml/badge.svg)](https://github.com/Patronum-Labs/nick-method/actions/workflows/main.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit)
+[![npm package](https://img.shields.io/npm/v/@patronumlabs/nick-method.svg)](https://www.npmjs.com/package/@patronumlabs/nick-method)
+
 This package provides utilities for generating transactions according to the Nick Method, supporting both normal execution transactions and deployment transactions.
 
 ## Rationale
