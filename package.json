@@ -1,0 +1,21 @@
+{
+  "name": "@patronumlabs/nick-method",
+  "version": "1.0.0",
+  "description": "NPM package that facilitates generating EVM transactions adhering to Nick-Method",
+  "main": "index.js",
+  "keywords": [
+    "ethereum",
+    "transactions",
+    "eip-155",
+    "nick method",
+    "nick factory",
+    "keyless execution",
+    "type 0 transactions",
+    "legacy transactions",
+    "pre-eip155 transaction",
+    "unprotected transactions",
+    "multi chain deployment",
+    "raw transaction"
+  ],
+  "license": "MIT"
+}
