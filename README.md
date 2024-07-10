@@ -26,7 +26,7 @@ npm install @patronumlabs/nick-method
 Here's an example of how to use the package to generate and broadcast transactions:
 
 ```typescript
-import { ethers } from 'ethers'; // v6
+import { ethers } from 'ethers'; // ethers@v6
 import { genRawDeployment, genRawTransaction, DeploymentConfig, TransactionConfig } from '@patronumlabs/nick-method';
 
 // Example provider
