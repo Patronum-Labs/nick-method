@@ -2,6 +2,15 @@
     "name": "@patronumlabs/nick-method",
     "version": "1.0.2",
     "description": "NPM package that facilitates generating EVM transactions adhering to Nick-Method",
+    "author": "Yamen Merhi (0xYamen)",
+    "homepage": "https://github.com/Patronum-Labs/nick-method#readme",
+    "bugs": {
+        "url": "https://github.com/Patronum-Labs/nick-method/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Patronum-Labs/nick-method.git"
+    },
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
