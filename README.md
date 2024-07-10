@@ -24,60 +24,74 @@ npm install @patronumlabs/nick-method
 
 Here's an example of how to use the package to generate and broadcast transactions:
 
-```typescript
+```javascript
 import { ethers } from 'ethers'; // ethers@v6
-import {
-    genRawDeployment,
-    genRawTransaction,
-    DeploymentConfig,
-    TransactionConfig,
-} from '@patronumlabs/nick-method';
+import { genRawDeployment, genRawTransaction } from '@patronumlabs/nick-method';
 
 // Example provider
 const provider = new ethers.JsonRpcProvider('https://mainnet.infura.io/v3/YOUR-PROJECT-ID');
 
+// Step 1: Generate a raw deployment transaction
+
 // Generate a raw deployment transaction
-const deploymentConfig: DeploymentConfig = {
-    gasLimit: 3000000,
-    gasPrice: 20000000000,
-    bytecode: '0x60806040...',
-    value: 0,
+const deploymentConfig = {
+  gasLimit: 1000000,
+  gasPrice: 100000000000,
+  bytecode: '0x60806040',
+  value: 0
 };
 
 const deploymentResult = genRawDeployment(deploymentConfig);
 console.log('Deployment Result:', deploymentResult);
 
-// ------------------------------------------------------------
-// Funding should be sent to deploymentResult.deployerAddress
-// The funds to be sent equal to deploymentResult.upfrontCost
-// The contract will be created at deploymentResult.contractAddress
-// ------------------------------------------------------------
+// Step 2: Fund the deployment transaction
+
+// // ------------------------------------------------------------
+// // Funding should be sent to deploymentResult.deployerAddress
+// // The funds to be sent equal to deploymentResult.upfrontCost
+// // The contract will be created at deploymentResult.contractAddress
+// // ------------------------------------------------------------
+
+// Step 3: Broadcast the deployment transaction
 
 // Broadcast the deployment transaction
-provider.broadcastTransaction(deploymentResult.rawTx).then((tx) => {
-    console.log('Deployment Transaction Hash:', tx.hash);
+provider.broadcastTransaction(deploymentResult.rawTx).then(tx => {
+  console.log('Deployment Transaction Hash:', tx.hash);
 });
 
+
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+
+
+// Step 1: Generate a raw execution transaction
+
 // Generate a raw execution transaction
-const transactionConfig: TransactionConfig = {
-    gasLimit: 21000,
-    gasPrice: 20000000000,
-    to: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
-    data: '0x',
-    value: ethers.parseEther('0.1'),
+const transactionConfig = {
+  gasLimit: 21000,
+  gasPrice: 20000000000,
+  to: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
+  data: '0x',
+  value: ethers.parseEther('0.1')
 };
 
 const transactionResult = genRawTransaction(transactionConfig);
 console.log('Transaction Result:', transactionResult);
+
+
+// Step 2: Fund the execution transaction
 
 // ------------------------------------------------------------
 // Funding should be sent to transactionResult.senderAddress
 // The funds to be sent equal to transactionResult.upfrontCost
 // ------------------------------------------------------------
 
+// Step 3: Broadcast the execution transaction
+
 // Broadcast the execution transaction
-provider.broadcastTransaction(transactionResult.rawTx).then((tx) => {
-    console.log('Execution Transaction Hash:', tx.hash);
+provider.broadcastTransaction(transactionResult.rawTx).then(tx => {
+  console.log('Execution Transaction Hash:', tx.hash);
 });
 ```
 
