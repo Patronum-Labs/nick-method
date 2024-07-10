@@ -1,6 +1,6 @@
 {
     "name": "@patronumlabs/nick-method",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "NPM package that facilitates generating EVM transactions adhering to Nick-Method",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
