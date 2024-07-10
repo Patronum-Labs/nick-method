@@ -2,7 +2,16 @@
     "name": "@patronumlabs/nick-method",
     "version": "1.0.0",
     "description": "NPM package that facilitates generating EVM transactions adhering to Nick-Method",
-    "main": "index.js",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "dev": "vitest",
+        "test": "vitest run",
+        "build": "tsup src/index.ts --format cjs,esm --dts",
+        "lint": "tsc",
+        "prettier": "prettier -w ."
+    },
     "keywords": [
         "ethereum",
         "transactions",
@@ -24,5 +33,10 @@
         "tsup": "^8.1.0",
         "typescript": "^5.5.3",
         "vitest": "^2.0.1"
+    },
+    "dependencies": {
+        "@ethereumjs/common": "3.0.2",
+        "@ethereumjs/tx": "4.0.2",
+        "@ethereumjs/util": "8.0.3"
     }
 }
