@@ -1,0 +1,3 @@
+pnpm-lock.yaml
+.changeset/config.json
+.github/workflows/*.yml

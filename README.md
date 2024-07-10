@@ -1,4 +1,3 @@
-
 ![Nick MethodSmaller](https://github.com/Patronum-Labs/nick-method/assets/86341666/8b392eea-74aa-4c73-95fe-fb355bc04d57)
 
 # @patronumlabs/nick-method
@@ -9,9 +8,9 @@ This package provides utilities for generating transactions according to the Nic
 
 The Nick Method allows for creating contracts on different chains at the same address without centralized control of a private key, and minimizes trust in execution. These transactions are useful for:
 
-- Deploying contracts to the same address across multiple chains
-- Executing transactions without direct control of private keys
-- Minimizing trust requirements in transaction execution
+-   Deploying contracts to the same address across multiple chains
+-   Executing transactions without direct control of private keys
+-   Minimizing trust requirements in transaction execution
 
 For a full explanation, please refer to the article: [Nick Method - Ethereum Keyless execution](https://yamenmerhi.medium.com/nicks-method-ethereum-keyless-execution-168a6659479c)
 
@@ -27,17 +26,22 @@ Here's an example of how to use the package to generate and broadcast transactio
 
 ```typescript
 import { ethers } from 'ethers'; // ethers@v6
-import { genRawDeployment, genRawTransaction, DeploymentConfig, TransactionConfig } from '@patronumlabs/nick-method';
+import {
+    genRawDeployment,
+    genRawTransaction,
+    DeploymentConfig,
+    TransactionConfig,
+} from '@patronumlabs/nick-method';
 
 // Example provider
 const provider = new ethers.JsonRpcProvider('https://mainnet.infura.io/v3/YOUR-PROJECT-ID');
 
 // Generate a raw deployment transaction
 const deploymentConfig: DeploymentConfig = {
-  gasLimit: 3000000,
-  gasPrice: 20000000000,
-  bytecode: '0x60806040...',
-  value: 0
+    gasLimit: 3000000,
+    gasPrice: 20000000000,
+    bytecode: '0x60806040...',
+    value: 0,
 };
 
 const deploymentResult = genRawDeployment(deploymentConfig);
@@ -50,17 +54,17 @@ console.log('Deployment Result:', deploymentResult);
 // ------------------------------------------------------------
 
 // Broadcast the deployment transaction
-provider.broadcastTransaction(deploymentResult.rawTx).then(tx => {
-  console.log('Deployment Transaction Hash:', tx.hash);
+provider.broadcastTransaction(deploymentResult.rawTx).then((tx) => {
+    console.log('Deployment Transaction Hash:', tx.hash);
 });
 
 // Generate a raw execution transaction
 const transactionConfig: TransactionConfig = {
-  gasLimit: 21000,
-  gasPrice: 20000000000,
-  to: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
-  data: '0x',
-  value: ethers.parseEther('0.1')
+    gasLimit: 21000,
+    gasPrice: 20000000000,
+    to: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
+    data: '0x',
+    value: ethers.parseEther('0.1'),
 };
 
 const transactionResult = genRawTransaction(transactionConfig);
@@ -72,8 +76,8 @@ console.log('Transaction Result:', transactionResult);
 // ------------------------------------------------------------
 
 // Broadcast the execution transaction
-provider.broadcastTransaction(transactionResult.rawTx).then(tx => {
-  console.log('Execution Transaction Hash:', tx.hash);
+provider.broadcastTransaction(transactionResult.rawTx).then((tx) => {
+    console.log('Execution Transaction Hash:', tx.hash);
 });
 ```
 
