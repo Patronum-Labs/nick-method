@@ -5,6 +5,7 @@
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
+    "private": false,
     "files": [
         "dist",
         "package.json",
@@ -17,7 +18,8 @@
         "build": "tsup src/index.ts --format cjs,esm --dts",
         "lint": "tsc",
         "prettier": "prettier -w .",
-        "ci": "pnpm run lint && pnpm run test && pnpm run build"
+        "ci": "pnpm run lint && pnpm run test && pnpm run build",
+        "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
     },
     "keywords": [
         "ethereum",
@@ -35,6 +37,7 @@
     ],
     "license": "MIT",
     "devDependencies": {
+        "@changesets/cli": "^2.27.7",
         "@types/node": "^20.14.10",
         "prettier": "^3.3.2",
         "tsup": "^8.1.0",
