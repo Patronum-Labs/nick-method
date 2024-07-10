@@ -16,7 +16,8 @@
         "test": "vitest run",
         "build": "tsup src/index.ts --format cjs,esm --dts",
         "lint": "tsc",
-        "prettier": "prettier -w ."
+        "prettier": "prettier -w .",
+        "ci": "pnpm run lint && pnpm run test && pnpm run build"
     },
     "keywords": [
         "ethereum",
