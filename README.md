@@ -35,10 +35,10 @@ const provider = new ethers.JsonRpcProvider('https://mainnet.infura.io/v3/YOUR-P
 
 // Generate a raw deployment transaction
 const deploymentConfig = {
-  gasLimit: 1000000,
-  gasPrice: 100000000000,
-  bytecode: '0x60806040',
-  value: 0
+    gasLimit: 1000000,
+    gasPrice: 100000000000,
+    bytecode: '0x60806040',
+    value: 0,
 };
 
 const deploymentResult = genRawDeployment(deploymentConfig);
@@ -55,30 +55,27 @@ console.log('Deployment Result:', deploymentResult);
 // Step 3: Broadcast the deployment transaction
 
 // Broadcast the deployment transaction
-provider.broadcastTransaction(deploymentResult.rawTx).then(tx => {
-  console.log('Deployment Transaction Hash:', tx.hash);
+provider.broadcastTransaction(deploymentResult.rawTx).then((tx) => {
+    console.log('Deployment Transaction Hash:', tx.hash);
 });
 
-
 /* ----------------------------------------------------------------- */
 /* ----------------------------------------------------------------- */
 /* ----------------------------------------------------------------- */
-
 
 // Step 1: Generate a raw execution transaction
 
 // Generate a raw execution transaction
 const transactionConfig = {
-  gasLimit: 21000,
-  gasPrice: 20000000000,
-  to: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
-  data: '0x',
-  value: ethers.parseEther('0.1')
+    gasLimit: 21000,
+    gasPrice: 20000000000,
+    to: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
+    data: '0x',
+    value: ethers.parseEther('0.1'),
 };
 
 const transactionResult = genRawTransaction(transactionConfig);
 console.log('Transaction Result:', transactionResult);
-
 
 // Step 2: Fund the execution transaction
 
@@ -90,8 +87,8 @@ console.log('Transaction Result:', transactionResult);
 // Step 3: Broadcast the execution transaction
 
 // Broadcast the execution transaction
-provider.broadcastTransaction(transactionResult.rawTx).then(tx => {
-  console.log('Execution Transaction Hash:', tx.hash);
+provider.broadcastTransaction(transactionResult.rawTx).then((tx) => {
+    console.log('Execution Transaction Hash:', tx.hash);
 });
 ```
 
